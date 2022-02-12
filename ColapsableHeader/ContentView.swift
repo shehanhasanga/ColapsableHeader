@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        GeometryReader { proxy in
+            let topedge = proxy.safeAreaInsets.top
+            Home(topEdge: topedge)
+                .ignoresSafeArea(.all, edges:.top)
+        }
+     
     }
 }
 
